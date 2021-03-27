@@ -53,23 +53,20 @@ ax.legend()
 
 # 4) Building average trend line
 
-
 stock_average = close.loc[:, 'CL=F']  # whichever stock
-# Calculate the average for the last 20 days
+# Calculate average
 short_rolling_stock_average = stock_average.rolling(
     window=20).mean()  # average mean
-# Create the plotting object.
+# Plotting
 fig, ax = plt.subplots(figsize=(16, 9))
 # Plot the MSFT data.
 ax.plot(stock_average.index, stock_average, label='CL=F')
 #  Plot the last 20 days average.
 ax.plot(short_rolling_stock_average.index,
         short_rolling_stock_average, label='20 days Average')
-# Set the X Label
+
 ax.set_xlabel('Date')
-# Set the Y Label
 ax.set_ylabel('Adjusted closing price ($)')
-# Show legend
 ax.legend()
 
 # %%
